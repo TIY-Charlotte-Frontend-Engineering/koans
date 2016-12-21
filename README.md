@@ -9,18 +9,8 @@ JavaScript Koans is an interactive learning environment that uses failing tests 
 
 ## Running the koans
 
-First, fork and clone (https://github.com/tiy-tpa-fee/koans)[the repository] from your own account, if needed.
-
-```sh
-npm install
-cp koans.original.js koans.js
-npm test
-```
+1. Copy the contents of `koans.js` into a file in your own repository.
+2. `npm install ava`
+3. `ava koans.js` to run your koans. **The tests should not pass when you're getting started**.
 
 Start editing `koans.js`. You only need replace instances of `__` in each test case to make it pass. You shouldn't need to edit any other code.
-
-Don't edit `koans.original.js`. Keep this to make copies from as you repeat the exercises. I will also be improving and extending the set of koans over time, so you'll be able to pull upstream changes to this file.
-
-## Explorer & Adventure Mode
-
-- Complete all of the available koans.
