@@ -23,19 +23,19 @@ const __ = undefined
  */
 
 test('What will satisfy the truthy assertion?', function (trial) {
-  t.truthy(__);
+  trial.truthy(__);
 });
 
 test('What is a falsey value?', function (trial) {
-  t.falsy(__);
+  trial.falsy(__);
 });
 
 test('What is true?', function (trial) {
-  t.true(__);
+  trial.true(__);
 });
 
 test('What is false?', function (trial) {
-  t.false(__);
+  trial.false(__);
 });
 
 test('What will satisfy the equality assertion?', function (trial) {
@@ -43,7 +43,7 @@ test('What will satisfy the equality assertion?', function (trial) {
 });
 
 test('What will satisfy the inequality assertion?', function (trial) {
-  t.not(__, 1 + 1)
+  trial.not(__, 1 + 1)
 })
 
 /**
@@ -51,25 +51,25 @@ test('What will satisfy the inequality assertion?', function (trial) {
  */
 
 test('What is addition?', function (trial) {
-  t.is(28 + __, 42)
+  trial.is(28 + __, 42)
 })
 
 test('What is assignment addition?', function (trial) {
   let result = 34
   result += 23 // Equivalent to `result = result + n`; but more concise.
 
-  t.is(__, result)
+  trial.is(__, result)
 })
 
 test('What is subtraction?', function (trial) {
-  t.is(30 - __, 21)
+  trial.is(30 - __, 21)
 })
 
 test('What is assignment subtraction?', function (trial) {
   let result = 5
   result -= 2
 
-  t.is(__, result)
+  trial.is(__, result)
 })
 
 // Assignment operators are available for multiplication and division as well.
@@ -80,7 +80,7 @@ test('What is modulus?', function (trial) {
   let result = 10
   result %= x // Same as `result = result % x`.
 
-  t.is(__, result, 'What is the value of result?')
+  trial.is(__, result, 'What is the value of result?')
 })
 
 /**
@@ -90,13 +90,13 @@ test('What is modulus?', function (trial) {
 test('What is ===?', function (trial) {
   const numberLiteral = 3
 
-  t.true(__ === numberLiteral)
+  trial.true(__ === numberLiteral)
 })
 
 test('What is ==?', function (trial) {
   const quotedNumber = '3'
 
-  t.true(quotedNumber == __)
+  trial.true(quotedNumber == __)
 })
 
 /**
@@ -107,13 +107,13 @@ test('What is ==?', function (trial) {
 test('What is the truthyness of positive numbers?', function (trial) {
   const oneIsTruthy = !!1
 
-  t.is(__, oneIsTruthy)
+  trial.is(__, oneIsTruthy)
 })
 
 test('What is the truthyness of negative numbers?', function (trial) {
   const negativeOneIsTruthy = !!-1
 
-  t.is(__, negativeOneIsTruthy)
+  trial.is(__, negativeOneIsTruthy)
 })
 
 /**
@@ -124,7 +124,7 @@ test('Assigning a value to a local variable.', function (trial) {
   let one
   one = 1
 
-  t.is(__, one)
+  trial.is(__, one)
 })
 
 /**
@@ -134,12 +134,12 @@ test('Assigning a value to a local variable.', function (trial) {
 // typeof() is a function that returns the type of its parameter as 
 // a string.
 test('What is the javascript numeric type?', function (trial) {
-  t.is(__, typeof(42));
+  trial.is(__, typeof(42));
 })
 
 
 test('Are integers and floats the same type?', function (trial) {
-  t.is(__, typeof(3.14159) === typeof(6))
+  trial.is(__, typeof(3.14159) === typeof(6))
 })
 
 /**
@@ -150,7 +150,7 @@ test('Are integers and floats the same type?', function (trial) {
 test('What is NaN?', function (trial) {
   const resultOfFailedOperations = 42 / 'wat'
 
-  t.is(__, isNaN(resultOfFailedOperations))
+  trial.is(__, isNaN(resultOfFailedOperations))
 })
 
 /**
@@ -160,26 +160,26 @@ test('Are similar strings with different quote styles equal?', function (trial) 
   const doubleQuotedString = "apple"
   const singleQuotedString = 'apple'
 
-  t.is(__, doubleQuotedString === singleQuotedString)
+  trial.is(__, doubleQuotedString === singleQuotedString)
 })
 
 test('What is string concatenation?', function (trial) {
   const fruit = 'apple'
   const dish = 'pie'
 
-  t.is(__, fruit + ' ' + dish)
+  trial.is(__, fruit + ' ' + dish)
 })
 
 test('How do you find the length of a string?', function (trial) {
   const fruit = 'apple'
 
-  t.is(__, fruit.length)
+  trial.is(__, fruit.length)
 })
 
 test('What is slicing a string?', function (trial) {
   const fruit = 'apple pie'
 
-  t.is(__, fruit.slice(0, 5))
+  trial.is(__, fruit.slice(0, 5))
 })
 
 /**
@@ -193,7 +193,7 @@ test('What is an if statement?', function (trial) {
     isPositive = true
   }
 
-  t.is(__, isPositive)
+  trial.is(__, isPositive)
 })
 
 test('What is a for loop?', function (trial) {
@@ -202,7 +202,7 @@ test('What is a for loop?', function (trial) {
     counter = counter + i
   }
 
-  t.is(__, counter)
+  trial.is(__, counter)
 })
 
 /**
@@ -213,10 +213,10 @@ test('What is a for loop?', function (trial) {
 test('What is a ternary operator?', function (trial) {
   const two = 2
   let fruit = two > 0 ? 'apple' : 'orange'
-  t.is(__, fruit)
+  trial.is(__, fruit)
 
   fruit = two < 0 ? 'apple' : 'orange'
-  t.is(__, fruit)
+  trial.is(__, fruit)
 })
 
 /**
@@ -226,17 +226,17 @@ test('What is a ternary operator?', function (trial) {
 test('What is indexing an array literal', function (trial) {
   const things = ['cellar door', 42, true]
 
-  t.is(__, things[0])
-  t.is(__, things[1])
-  t.is(__, things[2])
+  trial.is(__, things[0])
+  trial.is(__, things[1])
+  trial.is(__, things[2])
 })
 
 test('What is the type of an array?', function (trial) {
-  t.is(__, typeof([]))
+  trial.is(__, typeof([]))
 })
 
 test('What is the length of of an array?', function (trial) {
-  t.is(__, ['a', 'b', 'c'].length)
+  trial.is(__, ['a', 'b', 'c'].length)
 })
 
 test('What are stack methods on arrays?', function (trial) {
@@ -244,8 +244,8 @@ test('What are stack methods on arrays?', function (trial) {
   stack.push('first')
   stack.push('second')
 
-  t.is(__, stack.pop())
-  t.is(__, stack.pop())
+  trial.is(__, stack.pop())
+  trial.is(__, stack.pop())
 })
 
 test('What are queue methods on arrays?', function (trial) {
@@ -254,8 +254,8 @@ test('What are queue methods on arrays?', function (trial) {
   queue.push('second')
   queue.unshift('third')
 
-  t.is(__, queue.shift())
-  t.is(__, queue.shift())
+  trial.is(__, queue.shift())
+  trial.is(__, queue.shift())
 })
 
 /**
@@ -263,7 +263,7 @@ test('What are queue methods on arrays?', function (trial) {
  */
 
 test('What is the type of an object?', function (trial) {
-  t.is(__, typeof({}))
+  trial.is(__, typeof({}))
 })
 
 test('What is object literal notation?', function (trial) {
@@ -272,16 +272,16 @@ test('What is object literal notation?', function (trial) {
     age: 102
   }
 
-  t.is(__, person.name)
-  t.is(__, person.age)
+  trial.is(__, person.name)
+  trial.is(__, person.age)
 })
 
 test('Dynamically adding properties to an object.', function (trial) {
   const person = {}
   person.__ = 'Amory Blaine'
   person.__ = 102
-  t.is('Amory Blaine', person.name)
-  t.is(102, person.age)
+  trial.is('Amory Blaine', person.name)
+  trial.is(102, person.age)
 })
 
 /**
@@ -290,6 +290,6 @@ test('Dynamically adding properties to an object.', function (trial) {
 test('Accessing object properties with strings.', function (trial) {
   const person = { name: 'Amory Blaine', age: 102 }
 
-  t.is(person['__'], 'Amory Blaine')
-  t.is(person['__'], 102)
+  trial.is(person['__'], 'Amory Blaine')
+  trial.is(person['__'], 102)
 })
